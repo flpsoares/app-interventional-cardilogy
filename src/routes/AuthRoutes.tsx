@@ -5,6 +5,7 @@ import { useLanguage } from '../contexts/LanguageContext'
 import { ChooseAuth } from '../pages/ChooseAuth'
 import { Login } from '../pages/Login'
 import { Register } from '../pages/Register'
+import { Initial } from '../pages/Initial'
 
 const Stack = createNativeStackNavigator()
 
@@ -35,6 +36,11 @@ export const AuthRoutes: React.FC = () => {
       <Stack.Screen
         name="Login"
         component={Login}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Initial"
+        component={Initial}
         options={{ headerShown: false }}
       />
       <Stack.Screen
