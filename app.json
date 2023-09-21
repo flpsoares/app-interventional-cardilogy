@@ -1,14 +1,33 @@
 {
   "expo": {
-    "name": "interventional-cardiology",
-    "slug": "interventional-cardiology",
+    "name": "Interventional Cardiology",
+    "slug": "InterventionalCardiology",
     "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#fff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
     "assetBundlePatterns": [
       "**/*"
     ],
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#fff"
+      },
+      "package": "com.interventionalcardiology"
+    },
     "extra": {
       "eas": {
-        "projectId": "6664864e-ec22-49f6-9a9c-7de71ab44760"
+        "projectId": "51703f2e-519c-4583-ba8a-722168271416"
       }
     }
   }

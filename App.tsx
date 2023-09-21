@@ -12,6 +12,7 @@ import { onAuthStateChanged } from 'firebase/auth'
 import { primary } from './src/styles/globalCssVar';
 import * as Updates from 'expo-updates'
 import { NotificationProvider } from './src/contexts/NotificationContext';
+import { Routes } from './src/routes';
 
 export default function App() {
   const [user, setUser] = useState<boolean>()
@@ -70,8 +71,8 @@ export default function App() {
             <UserProvider>
               <NotificationProvider>
                 <StatusBar barStyle={'dark-content'} backgroundColor="#fff" />
-                <AuthRoutes />
-                {/* {user ? <Routes /> : <AuthRoutes />} */}
+                {/* <Routes /> */}
+                {user ? <Routes /> : <AuthRoutes />}
               </NotificationProvider>
             </UserProvider>
           </ModalProvider>

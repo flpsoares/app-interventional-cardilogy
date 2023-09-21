@@ -99,9 +99,12 @@ export const Login: React.FC = () => {
     if (email !== '' && password !== '') {
       setIsClicked(true);
 
+      console.log('executou')
+
       signInWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {
           const user = userCredential.user;
+          console.log('caiu no then')
 
           if (user) {
             const userInfo = await getDoc(doc(database, 'users', user.uid));
@@ -125,12 +128,15 @@ export const Login: React.FC = () => {
             }
           }
         })
-        .catch(() => {
+        .catch((e) => {
+          console.log('caiu no catch')
+          console.log(e)
           Alert.alert(i18n.t('error'), i18n.t('invalid'));
           setIsClicked(false);
           setPassword('');
         }).finally(() => {
           setIsClicked(false)
+          console.log('caiu no finally')
         })
 
     } else {
