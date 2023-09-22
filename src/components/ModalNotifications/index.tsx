@@ -11,20 +11,32 @@ export const ModalNotifications: React.FC = () => {
   const { modalizeRef } = useModal()
   const [notification, setNotifications] = useState<App.Notification[]>()
 
-  useEffect(() => {
-    const notificationsRef = collection(database, `users/${userId}/notifications`);
+  // useEffect(() => {
+  //   const notificationsRef = collection(database, `users/${userId}/notifications`);
 
-    onSnapshot(notificationsRef, (querySnapshot) => {
-      const data = querySnapshot.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() };
-      }) as any;
-      setNotifications(data);
-    });
-  }, [])
+  //   onSnapshot(notificationsRef, (querySnapshot) => {
+  //     const data = querySnapshot.docs.map((doc) => {
+  //       return { id: doc.id, ...doc.data() };
+  //     }) as any;
+  //     setNotifications(data);
+  //   });
+  // }, [])
 
   return (
-    <Modalize ref={modalizeRef} snapPoint={500}>
-      {notification?.map((notification, index) => {
+    <Modalize FloatingComponent ref={modalizeRef} snapPoint={500}>
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      <NotificationItem title="title" message="message" data="data" id="20" />
+      {/* {notification?.map((notification, index) => {
         return (
           <NotificationItem
             key={index}
@@ -34,7 +46,7 @@ export const ModalNotifications: React.FC = () => {
             id={notification.id!}
           />
         )
-      })}
+      })} */}
     </Modalize>
   )
 }

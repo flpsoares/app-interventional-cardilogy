@@ -89,12 +89,16 @@ export const ModalProvider = ({ children }: ModalProviderProps) => {
   }
 
   const openNotificationModal = () => {
-    modalizeRef.current?.open()
-  }
+    if (modalizeRef.current) {
+      modalizeRef.current.open()
+    }
+  };
 
   const closeNotificationModal = () => {
-    modalizeRef.current?.close()
-  }
+    if (modalizeRef.current) {
+      modalizeRef.current.close()
+    }
+  };
 
   const openPasswordModal = () => {
     modalizePasswordRef.current?.open()

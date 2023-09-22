@@ -3,6 +3,7 @@
     "name": "Interventional Cardiology",
     "slug": "InterventionalCardiology",
     "version": "1.0.0",
+    "owner": "digitalott",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {

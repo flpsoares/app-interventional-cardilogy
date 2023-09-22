@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "432097600821",
-    "project_id": "app-interventional-cardiology",
-    "storage_bucket": "app-interventional-cardiology.appspot.com"
+    "project_number": "136069687954",
+    "project_id": "interventional-cardiolog-ba8d6",
+    "storage_bucket": "interventional-cardiolog-ba8d6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:432097600821:android:4f72553010b770be9ad87c",
+        "mobilesdk_app_id": "1:136069687954:android:a5bc096b59716da4c8944b",
         "android_client_info": {
           "package_name": "com.interventionalcardiology"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAVREHNiwMqgHs7Ou73C3qBfd22QoTZ3Eo"
+          "current_key": "AIzaSyCQlnOj1dAmPioZmbrn2fAr_PPUTQbo7c0"
         }
       ],
       "services": {

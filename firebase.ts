@@ -7,12 +7,12 @@ import * as firebaseAuth from "firebase/auth";
 const reactNativePersistence = (firebaseAuth as any).getReactNativePersistence;
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCLvZVvxNOaxV76dzzX98lX7Xhglc2N9GE",
-  authDomain: "app-interventional-cardiology.firebaseapp.com",
-  projectId: "app-interventional-cardiology",
-  storageBucket: "app-interventional-cardiology.appspot.com",
-  messagingSenderId: "432097600821",
-  appId: "1:432097600821:web:8871fb1ea0ebe7c19ad87c"
+  apiKey: "AIzaSyBMWdELBTqHGN32d88Sc6cx2xgmBZ1mHd4",
+  authDomain: "interventional-cardiolog-ba8d6.firebaseapp.com",
+  projectId: "interventional-cardiolog-ba8d6",
+  storageBucket: "interventional-cardiolog-ba8d6.appspot.com",
+  messagingSenderId: "136069687954",
+  appId: "1:136069687954:web:bced094b00fce828c8944b"
 }
 
 const app = initializeApp(firebaseConfig);
