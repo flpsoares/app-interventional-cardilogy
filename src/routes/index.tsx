@@ -16,8 +16,8 @@ import { Favorites } from '../pages/Favorites'
 import { Plans } from '../pages/Plans'
 import { primary, secondary } from '../styles/globalCssVar'
 import { AccountStackRoutes } from './accountStackRoutes'
-// import { HomeStackRoutes } from './homeStackRoutes'
-// import { PublishStackRoutes } from './publishStackRoutes'
+import { HomeStackRoutes } from './homeStackRoutes'
+import { PublishStackRoutes } from './publishStackRoutes'
 
 import { doc, setDoc, onSnapshot } from 'firebase/firestore';
 import { auth } from '../../firebase'
@@ -223,7 +223,7 @@ export const Routes: React.FC = () => {
         tabBarInactiveTintColor: '#596988'
       }}
     >
-      {/* <Tab.Screen
+      <Tab.Screen
         name="HomeStackRoutes"
         component={HomeStackRoutes}
         options={{
@@ -233,7 +233,7 @@ export const Routes: React.FC = () => {
             <Foundation name="home" size={size} color={color} />
           )
         }}
-      /> */}
+      />
       <Tab.Screen
         name="Plans"
         component={Plans}
@@ -245,7 +245,7 @@ export const Routes: React.FC = () => {
           )
         }}
       />
-      {/* {user?.isDoctor && (
+      {user?.isDoctor && (
         <Tab.Screen
           name="PublishStackRoutes"
           component={PublishStackRoutes}
@@ -256,7 +256,7 @@ export const Routes: React.FC = () => {
             tabBarIcon: () => <PublishButton />
           }}
         />
-      )} */}
+      )}
       <Tab.Screen
         name="Favorites"
         component={Favorites}

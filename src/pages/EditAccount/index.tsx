@@ -109,25 +109,30 @@ export const EditAccount: React.FC = () => {
       quality: 1,
     });
 
-    if (result.cancelled === false) {
-      setImage(result.uri);
-      const uploadUri = result.uri;
-      const imageExtension = uploadUri.substring(uploadUri.lastIndexOf('.') + 1);
+    if (result.canceled === false) {
+      console.log(result)
+      const uploadUri = result.assets[0].uri;
 
-      const storageRef = ref(storage, `perfil/${userId}.${imageExtension}`);
+      if (uploadUri) {
+        const imageExtension = uploadUri.substring(uploadUri.lastIndexOf('.') + 1);
+        const storageRef = ref(storage, `perfil/${userId}.${imageExtension}`);
 
-      try {
-        const img = await fetch(uploadUri);
-        const bytes = await img.blob();
+        try {
+          const img = await fetch(uploadUri);
+          const bytes = await img.blob();
 
-        await uploadBytes(storageRef, bytes);
+          await uploadBytes(storageRef, bytes);
 
-        const url = await getDownloadURL(storageRef);
+          const url = await getDownloadURL(storageRef);
 
-        await setDoc(doc(database, 'users', userId), { userPhoto: url }, { merge: true });
-      } catch (e) {
-        Alert.alert(error, errorOccurred);
-        console.error(e);
+          await setDoc(doc(database, 'users', userId), { userPhoto: url }, { merge: true });
+        } catch (e) {
+          Alert.alert(error, errorOccurred);
+          console.error(e);
+        }
+      } else {
+        // Trate o caso em que result.uri está vazio ou indefinido.
+        Alert.alert('Erro', 'A imagem selecionada é inválida.');
       }
     }
   };
