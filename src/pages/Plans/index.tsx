@@ -26,11 +26,14 @@ import {
   WebViewHeader,
   Wrapper
 } from './style'
+import { ActivityIndicator } from 'react-native'
+import { primary } from '../../styles/globalCssVar'
 export const Plans: React.FC = () => {
   const { userId } = useUser()
   const { closeModalChoosePlan, openNotificationModal } = useModal()
 
   const isFocused = useIsFocused()
+  const [isLoading, setIsLoading] = useState(false)
 
   const [threeMonthIsActive, setThreeMonthIsActive] = useState(false)
   const [sixMonthIsActive, setSixMonthIsActive] = useState(true)
@@ -89,10 +92,16 @@ export const Plans: React.FC = () => {
   }
 
   const handleSale = (month: number) => {
+    setIsLoading(true)
     MercadoPagoApi.createPreference(month, userId).then((res: any) => {
       setUrl(res.data.body.sandbox_init_point)
       setIsOpen(true)
+    }).catch((e) => {
+      console.log(e)
     })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
   useFocusEffect(
@@ -107,7 +116,7 @@ export const Plans: React.FC = () => {
       <WebViewContainer>
         <WebViewHeader>
           <WebViewCloseButton onPress={() => setIsOpen(false)}>
-            <Ionicons name="close" size={28} color="#000" />
+            <Ionicons style={{ marginTop: 22 }} name="close" size={28} color="#000" />
           </WebViewCloseButton>
         </WebViewHeader>
         <WebView
@@ -150,9 +159,13 @@ export const Plans: React.FC = () => {
             <PlanText isActive={twelveMonthIsActive}>{i18n.t('months')}</PlanText>
           </Plan>
         </PlanArea>
-        <Button onPress={() => handleSale(monthActive())}>
-          <ButtonText>{i18n.t('button')}</ButtonText>
-        </Button>
+        {isLoading ? (
+          <ActivityIndicator size="large" color={primary} />
+        ) : (
+          <Button onPress={() => handleSale(monthActive())}>
+            <ButtonText>{i18n.t('button')}</ButtonText>
+          </Button>
+        )}
       </Wrapper>
     </Container>
   )
