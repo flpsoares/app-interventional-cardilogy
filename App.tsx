@@ -13,6 +13,7 @@ import { primary } from './src/styles/globalCssVar';
 import * as Updates from 'expo-updates'
 import { NotificationProvider } from './src/contexts/NotificationContext';
 import { Routes } from './src/routes';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
   const [user, setUser] = useState<boolean>()
@@ -71,8 +72,9 @@ export default function App() {
             <UserProvider>
               <NotificationProvider>
                 <StatusBar barStyle={'dark-content'} backgroundColor="#fff" />
-                {/* <Routes /> */}
-                {user ? <Routes /> : <AuthRoutes />}
+                <GestureHandlerRootView style={{ flex: 1 }}>
+                  {user ? <Routes /> : <AuthRoutes />}
+                </GestureHandlerRootView>
               </NotificationProvider>
             </UserProvider>
           </ModalProvider>
