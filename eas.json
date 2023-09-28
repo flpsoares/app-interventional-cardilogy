@@ -15,11 +15,13 @@
     },
     "preview": {
       "distribution": "internal",
+      "channel": "staging",
       "ios": {
         "resourceClass": "m-medium"
       },
       "android": {
-        "buildType": "apk"
+        "buildType": "apk",
+        "applicationArchivePath": "android/app/build/outputs/apk/debug/app-debug.apk"
       }
     },
     "production": {}
