@@ -10,7 +10,6 @@ import { ModalProvider } from './src/contexts/ModalContext';
 import { UserProvider } from './src/contexts/UserContext';
 import { onAuthStateChanged } from 'firebase/auth'
 import { primary } from './src/styles/globalCssVar';
-import * as Updates from 'expo-updates'
 import { NotificationProvider } from './src/contexts/NotificationContext';
 import { Routes } from './src/routes';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -40,20 +39,6 @@ export default function App() {
     })
 
     return subscriber
-  }, [])
-
-  useEffect(() => {
-    const updateApp = async () => {
-      const { isAvailable } = await Updates.checkForUpdateAsync()
-
-      if (isAvailable) {
-        await Updates.fetchUpdateAsync()
-
-        await Updates.reloadAsync()
-      }
-    }
-
-    updateApp()
   }, [])
 
   if (isLoading) {

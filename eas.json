@@ -6,6 +6,7 @@
   "build": {
     "development": {
       "distribution": "internal",
+      "channel": "staging",
       "android": {
         "gradleCommand": ":app:assembleDebug"
       },
@@ -24,7 +25,9 @@
         "applicationArchivePath": "android/app/build/outputs/apk/debug/app-debug.apk"
       }
     },
-    "production": {}
+    "production": {
+      "channel": "staging"
+    }
   },
   "submit": {
     "production": {}
