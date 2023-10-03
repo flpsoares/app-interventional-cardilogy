@@ -26,10 +26,7 @@
       }
     },
     "production": {
-      "channel": "staging",
-      "ios": {
-        "image": "latest"
-      }
+      "channel": "staging"
     }
   },
   "submit": {
